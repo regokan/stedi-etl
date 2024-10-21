@@ -15,9 +15,7 @@ job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
 
 # Read customer data from S3 (jsonl format)
-customer_df = spark.read.json(
-    "s3://stedi-etl/ingestion/customer/*.json"
-)
+customer_df = spark.read.json("s3://stedi-etl/ingestion/customer/*.json")
 
 # Filter out customers who haven't consented to research
 filtered_customer_df = customer_df.filter(col("shareWithResearchAsOfDate").isNotNull())

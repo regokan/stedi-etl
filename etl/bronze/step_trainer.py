@@ -15,14 +15,10 @@ job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
 
 # Read step_trainer data from S3 (jsonl format)
-step_trainer_df = spark.read.json(
-    "s3://stedi-etl/ingestion/step_trainer/*.json"
-)
+step_trainer_df = spark.read.json("s3://stedi-etl/ingestion/step_trainer/*.json")
 
 # Read customer data to get research consent information
-customer_df = spark.read.json(
-    "s3://stedi-etl/ingestion/customer/*.json"
-)
+customer_df = spark.read.json("s3://stedi-etl/ingestion/customer/*.json")
 
 # Filter out customers who haven't consented to research
 consented_customers_df = customer_df.filter(
