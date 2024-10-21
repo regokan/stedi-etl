@@ -16,3 +16,16 @@ variable "region" {
   default     = "us-east-1"
   type        = string
 }
+
+# Redshift Master Username
+variable "redshift_master_username" {
+  description = "Master username for Redshift"
+  type        = string
+}
+
+# Redshift Master Password
+variable "redshift_master_password" {
+  description = "Master password for Redshift"
+  type        = string
+  sensitive   = true
+}

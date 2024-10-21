@@ -5,3 +5,7 @@ output "stedi_etl_bronze_role_arn" {
 output "stedi_etl_silver_role_arn" {
   value = aws_iam_role.etl_silver_role.arn
 }
+
+output "stedi_etl_gold_role_arn" {
+  value = aws_iam_role.etl_gold_role.arn
+}
