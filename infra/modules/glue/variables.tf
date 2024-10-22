@@ -17,3 +17,8 @@ variable "stedi_etl_bucket" {
   description = "Stedi ETL S3 bucket name"
   type        = string
 }
+
+variable "stedi_glue_crawler_role_arn" {
+  description = "AWS Role ARN for Glue Crawler"
+  type        = string
+}

@@ -21,10 +21,11 @@ module "iam" {
 module "glue" {
   source = "./modules/glue"
 
-  stedi_etl_bucket               = module.s3.stedi_etl_bucket
-  stedi_etl_bronze_role_arn      = module.iam.stedi_etl_bronze_role_arn
-  stedi_etl_silver_role_arn      = module.iam.stedi_etl_silver_role_arn
-  stedi_etl_gold_role_arn        = module.iam.stedi_etl_gold_role_arn
+  stedi_etl_bucket            = module.s3.stedi_etl_bucket
+  stedi_etl_bronze_role_arn   = module.iam.stedi_etl_bronze_role_arn
+  stedi_etl_silver_role_arn   = module.iam.stedi_etl_silver_role_arn
+  stedi_etl_gold_role_arn     = module.iam.stedi_etl_gold_role_arn
+  stedi_glue_crawler_role_arn = module.iam.stedi_glue_crawler_role_arn
 }
 
 module "redshift" {
