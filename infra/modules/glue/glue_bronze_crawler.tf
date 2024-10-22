@@ -1,11 +1,11 @@
-resource "aws_glue_crawler" "customer_landing_crawler" {
-  name          = "customer_landing_crawler"
+resource "aws_glue_crawler" "customer_trusted_crawler" {
+  name          = "customer_trusted_crawler"
   role          = var.stedi_glue_crawler_role_arn
-  database_name = aws_glue_catalog_database.customer_landing.name
-  table_prefix = "landing_"
+  database_name = aws_glue_catalog_database.customer_trusted.name
+  table_prefix = "trusted_"
 
   s3_target {
-    path = "s3://stedi-etl/ingestion/customer/"
+    path = "s3://stedi-etl/bronze/customer/"
   }
 
   schema_change_policy {
@@ -14,7 +14,7 @@ resource "aws_glue_crawler" "customer_landing_crawler" {
   }
 
   tags = {
-    Name        = "customer_landing_crawler"
+    Name        = "customer_trusted_crawler"
     Project     = "stedi_etl"
     Owner       = "DataEngg"
     Stage       = "ETL"
@@ -22,14 +22,14 @@ resource "aws_glue_crawler" "customer_landing_crawler" {
   }
 }
 
-resource "aws_glue_crawler" "accelerometer_landing_crawler" {
-  name          = "accelerometer_landing_crawler"
+resource "aws_glue_crawler" "accelerometer_trusted_crawler" {
+  name          = "accelerometer_trusted_crawler"
   role          = var.stedi_glue_crawler_role_arn
-  database_name = aws_glue_catalog_database.accelerometer_landing.name
-  table_prefix = "landing_"
+  database_name = aws_glue_catalog_database.accelerometer_trusted.name
+  table_prefix = "trusted_"
 
   s3_target {
-    path = "s3://stedi-etl/ingestion/accelerometer/"
+    path = "s3://stedi-etl/bronze/accelerometer/"
   }
 
   schema_change_policy {
@@ -38,7 +38,7 @@ resource "aws_glue_crawler" "accelerometer_landing_crawler" {
   }
 
   tags = {
-    Name        = "accelerometer_landing_crawler"
+    Name        = "accelerometer_trusted_crawler"
     Project     = "stedi_etl"
     Owner       = "DataEngg"
     Stage       = "ETL"
@@ -46,14 +46,14 @@ resource "aws_glue_crawler" "accelerometer_landing_crawler" {
   }
 }
 
-resource "aws_glue_crawler" "step_trainer_landing_crawler" {
-  name          = "step_trainer_landing_crawler"
+resource "aws_glue_crawler" "step_trainer_trusted_crawler" {
+  name          = "step_trainer_trusted_crawler"
   role          = var.stedi_glue_crawler_role_arn
-  database_name = aws_glue_catalog_database.step_trainer_landing.name
-  table_prefix = "landing_"
+  database_name = aws_glue_catalog_database.step_trainer_trusted.name
+  table_prefix = "trusted_"
 
   s3_target {
-    path = "s3://stedi-etl/ingestion/step_trainer/"
+    path = "s3://stedi-etl/bronze/step_trainer/"
   }
 
   schema_change_policy {
@@ -62,7 +62,7 @@ resource "aws_glue_crawler" "step_trainer_landing_crawler" {
   }
 
   tags = {
-    Name        = "step_trainer_landing_crawler"
+    Name        = "step_trainer_trusted_crawler"
     Project     = "stedi_etl"
     Owner       = "DataEngg"
     Stage       = "ETL"

@@ -1,8 +1,8 @@
-resource "aws_glue_catalog_database" "customer_trusted" {
-  name = "customer_trusted"
+resource "aws_glue_catalog_database" "customer_landing" {
+  name = "customer_landing"
 
   tags = {
-    Name        = "customer_trusted"
+    Name        = "customer_landing"
     Project     = "stedi_etl"
     Owner       = "DataEngg"
     Stage       = "ETL"
@@ -10,11 +10,11 @@ resource "aws_glue_catalog_database" "customer_trusted" {
   }
 }
 
-resource "aws_glue_catalog_database" "accelerometer_trusted" {
-  name = "accelerometer_trusted"
+resource "aws_glue_catalog_database" "accelerometer_landing" {
+  name = "accelerometer_landing"
 
   tags = {
-    Name        = "accelerometer_trusted"
+    Name        = "accelerometer_landing"
     Project     = "stedi_etl"
     Owner       = "DataEngg"
     Stage       = "ETL"
@@ -22,11 +22,11 @@ resource "aws_glue_catalog_database" "accelerometer_trusted" {
   }
 }
 
-resource "aws_glue_catalog_database" "step_trainer_trusted" {
-  name = "step_trainer_trusted"
+resource "aws_glue_catalog_database" "step_trainer_landing" {
+  name = "step_trainer_landing"
 
   tags = {
-    Name        = "step_trainer_trusted"
+    Name        = "step_trainer_landing"
     Project     = "stedi_etl"
     Owner       = "DataEngg"
     Stage       = "ETL"
