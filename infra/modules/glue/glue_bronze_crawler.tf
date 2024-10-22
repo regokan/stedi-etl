@@ -2,7 +2,7 @@ resource "aws_glue_crawler" "customer_trusted_crawler" {
   name          = "customer_trusted_crawler"
   role          = var.stedi_glue_crawler_role_arn
   database_name = aws_glue_catalog_database.customer_trusted.name
-  table_prefix = "trusted_"
+  table_prefix  = "trusted_"
 
   s3_target {
     path = "s3://stedi-etl/bronze/customer/"
@@ -26,7 +26,7 @@ resource "aws_glue_crawler" "accelerometer_trusted_crawler" {
   name          = "accelerometer_trusted_crawler"
   role          = var.stedi_glue_crawler_role_arn
   database_name = aws_glue_catalog_database.accelerometer_trusted.name
-  table_prefix = "trusted_"
+  table_prefix  = "trusted_"
 
   s3_target {
     path = "s3://stedi-etl/bronze/accelerometer/"
@@ -50,7 +50,7 @@ resource "aws_glue_crawler" "step_trainer_trusted_crawler" {
   name          = "step_trainer_trusted_crawler"
   role          = var.stedi_glue_crawler_role_arn
   database_name = aws_glue_catalog_database.step_trainer_trusted.name
-  table_prefix = "trusted_"
+  table_prefix  = "trusted_"
 
   s3_target {
     path = "s3://stedi-etl/bronze/step_trainer/"
