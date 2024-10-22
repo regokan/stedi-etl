@@ -23,14 +23,19 @@ The scripts in the **Silver** layer focus on solving this issue by ensuring that
 
 ### Steps Taken:
 
-1. **Customer Data Curation (`customer.py`)**:
+1. **Customer Data Curation (`customer_trusted_to_curated.py`)**:
 
    - This script reads the **bronze layer** of customer data and filters it to include only customers who have **accelerometer data**.
    - By focusing on customers with accelerometer data, we can create a more accurate customer dataset in the **silver layer**.
 
-2. **Step Trainer Data Curation (`step_trainer.py`)**:
-   - This script reads the **bronze layer** of step trainer data and matches it with the **curated customer data** based on **timestamp** and **sensorReadingTime** (rather than just serial number).
-   - This step helps mitigate the issue of serial number reuse, by ensuring we are associating step trainer data with the correct customers based on actual recorded activity (i.e., accelerometer data and step trainer events happening at the same time).
+2. **Step Trainer Data Curation (`step_trainer_trusted.py`)**:
+
+   - This script reads the **bronze layer** of step trainer data and matches it with the **curated customer data** by serial numbers.
+
+3. **Machine Learning Data Curation (`machine_learning_curated.py`)**:
+
+   - This script reads the **silver layer** of both step trainer and accelerometer data and joins them on **sensor reading time** and **timestamps**.
+   - The curated data is then written to the **curated (gold) layer**, ensuring that only customers with both accelerometer and step trainer data are included for machine learning analysis.
 
 ### Outcome
 

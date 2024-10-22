@@ -2,17 +2,20 @@
 BUCKET_NAME = stedi-etl
 GLUE_SCRIPTS_PATH = glue/silver/scripts
 
-# Step trainer variables
-STEP_TRAINER_SCRIPT = step_trainer.py
+# Customer Curated script
+CUSTOMER_SCRIPT = customer_trusted_to_curated.py
 
-# Customer variables
-CUSTOMER_SCRIPT = customer.py
+# Step trainer Curated script
+STEP_TRAINER_SCRIPT = step_trainer_trusted.py
+
+# Machine learning Curated script
+MACHINE_LEARNING_SCRIPT = machine_learning_curated.py
 
 # Phony targets
-.PHONY: all push_customer push_step_trainer
+.PHONY: all push_customer push_step_trainer push_machine_learning
 
 # Default target
-all: push_customer push_step_trainer
+all: push_customer push_step_trainer push_machine_learning
 
 # Upload customer script to S3
 push_customer:
@@ -25,3 +28,8 @@ push_step_trainer:
 	@echo "Pushing step_trainer Glue job script to S3..."
 	aws s3 cp $(STEP_TRAINER_SCRIPT) s3://$(BUCKET_NAME)/$(GLUE_SCRIPTS_PATH)/step_trainer.py
 	@echo "Step Trainer job script pushed successfully."
+
+push_machine_learning:
+	@echo "Pushing machine learning Glue job script to S3..."
+	aws s3 cp $(MACHINE_LEARNING_SCRIPT) s3://$(BUCKET_NAME)/$(GLUE_SCRIPTS_PATH)/machine_learning.py
+	@echo "Machine Learning job script pushed successfully."
