@@ -3,13 +3,13 @@ BUCKET_NAME = stedi-etl
 GLUE_SCRIPTS_PATH = glue/bronze/scripts
 
 # Step trainer variables
-STEP_TRAINER_SCRIPT = step_trainer.py
+STEP_TRAINER_SCRIPT = step_trainer_trusted.py
 
 # Accelerometer variables
-ACCELEROMETER_SCRIPT = accelerometer.py
+ACCELEROMETER_SCRIPT = accelerometer_landing_to_trusted.py
 
 # Customer variables
-CUSTOMER_SCRIPT = customer.py
+CUSTOMER_SCRIPT = customer_landing_to_trusted.py
 
 # Phony targets
 .PHONY: all push_customer push_step_trainer push_accelerometer
